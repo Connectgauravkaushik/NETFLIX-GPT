@@ -9,6 +9,11 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   }
 
+  const handleButtonClick = () => {
+    //validate the form data
+    
+  }
+
   return (
     <div>
 
@@ -40,7 +45,7 @@ const Login = () => {
           className="p-4 my-4 w-full bg-slate-800" />
 
         <button
-          className="p-4 my-6  bg-red-500 rounded-sm w-full">
+          className="p-4 my-6  bg-red-500 rounded-sm w-full" onClick={handleButtonClick}>
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 
