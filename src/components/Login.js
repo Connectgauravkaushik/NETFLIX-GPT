@@ -5,15 +5,13 @@ import { checkValidData } from "../utils/validate";
 import { useRef } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-
+import { BackGroundImage , ProfileImage } from "../utils/constants";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const Name = useRef(null);
@@ -42,7 +40,7 @@ const Login = () => {
           // Signed up 
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: Name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+            displayName: Name.current.value, photoURL: ProfileImage
           }).then(() => {
             const { uid, email, displayName } = auth.currentUser;
             dispatch(
@@ -52,7 +50,7 @@ const Login = () => {
                 displayName: displayName
               }));
 
-            navigate("/browse");
+            
           }).catch((error) => {
             setErrorMessage(error.message);
           });
@@ -70,7 +68,6 @@ const Login = () => {
           // Signed in 
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -89,7 +86,7 @@ const Login = () => {
 
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/16006346-87f9-4226-bc25-a1fb346a2b0c/9662d0fd-0547-4665-b887-771617268815/IN-en-20240115-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="logo"></img>
+          src={BackGroundImage} alt="logo"></img>
       </div>
 
       <form onSubmit={(e) => { e.preventDefault(); }} className="p-12 bg-black absolute w-3/12 my-36 mx-auto right-0 left-0  text-white bg-opacity-80">
