@@ -3,11 +3,12 @@ import VideoTitle from "./VideoTitle";
 import VideoBackGround from "./VideoBackGround";
 
 const MainContainer = () => {
-    const movies = useSelector(store =>  store.movies?.nowPlayingMovies);
+    const movies = useSelector(store =>  store.movies?.NowPlayingMovies);
     
     if(movies === null) return;  // if movie is not present  then return null
     const mainMovie = movies[0];  // only considering the first movie
 
+    console.log(mainMovie);
    const {original_title ,overview,id } = mainMovie;
     return ( 
         <div>
