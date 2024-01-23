@@ -49,6 +49,11 @@ const Header = () => {
 
     }, []);
 
+   const handleGptSearchClick = () => {
+        //Toggle GPT search button
+        
+    }
+
     return (
         <div className="flex justify-between absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen">
             <img
@@ -56,6 +61,7 @@ const Header = () => {
                 src={LOGO} alt="logo"></img>
 
        {    user && <div className="flex p-2">
+               <button className="text-white bg-red-700 rounded-lg font-bold mr-5 w-40 text-xl h-12 " onClick={handleGptSearchClick}>GPT Search</button>
                 <img
                     className="w-12 h-12 "
                     src={ProfileImage} alt=""></img>
