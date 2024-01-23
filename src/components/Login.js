@@ -27,8 +27,7 @@ const Login = () => {
     //validate the form data
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
-    console.log(message);
-
+   
     if (message) return;
 
     if (!isSignInForm) { //sign Up Logic
@@ -54,7 +53,6 @@ const Login = () => {
           }).catch((error) => {
             setErrorMessage(error.message);
           });
-          console.log(user);
 
         })
         .catch((error) => {
@@ -67,7 +65,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          console.log(user);
+      
         })
         .catch((error) => {
           const errorCode = error.code;

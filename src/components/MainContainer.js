@@ -8,7 +8,6 @@ const MainContainer = () => {
     if(movies === null) return;  // if movie is not present  then return null
     const mainMovie = movies[0];  // only considering the first movie
 
-    console.log(mainMovie);
    const {original_title ,overview,id } = mainMovie;
     return ( 
         <div>
