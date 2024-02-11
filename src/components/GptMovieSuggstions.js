@@ -15,6 +15,7 @@ const GptMovieSuggestions = () => {
                     key={movieName} 
                     title={movieName} 
                     movies={movieResults[index]} // passing the index of movie results
+                    id={movieName}
                     />
                 )}
 

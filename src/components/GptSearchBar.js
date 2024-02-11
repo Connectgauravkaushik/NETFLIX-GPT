@@ -9,6 +9,7 @@ const GptSearchBar = () => {
     const langKey = useSelector(store => store.config.lang);
     const SearchTxt = useRef(null);
     const dispatch = useDispatch();
+
     //search movie in tmdb database
     const searchMovieTMDB = async (movie) => {
         const data = await fetch
@@ -22,8 +23,7 @@ const GptSearchBar = () => {
 
 
     const handleGPTSearchClick = async () => {
-        console.log(SearchTxt.current.value);
-
+        
         //Writing a query 
         const gptQuery = "Act as a Movie Recommendation system and suggest some movies for the query"
             + SearchTxt.current.value + "only give me names of 5 movies comma seperated like the example result given ahead. Example Result:Gadar,sholey,Don,Batman , Golmaal,koi mil gya,salaar";
